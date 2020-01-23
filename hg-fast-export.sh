@@ -189,7 +189,7 @@ $(
       --status "$GIT_DIR/$PFX-$SFX_STATE" \
       "$@" 3>&- || _e1=$?
     echo $_e1 >&3
-  } | \
+  } | tee ../silver_fast_export.log | \
   {
     _e2=0
     git fast-import $GFI_OPTS --export-marks="$GIT_DIR/$PFX-$SFX_MARKS.tmp" 3>&- || _e2=$?
